@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Mêmes balises meta que index.html -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2048 GENESIS - Account Deletion</title>
+    
+    <!-- Même CSS que index.html + ajouts spécifiques -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <!-- Header identique à index.html -->
+    <header class="header" role="banner">
+        <div class="logo-wrapper">
+            <a href="index.html" class="logo-link" aria-label="Homepage">
+                <img src="assets/images/logo.png" 
+                     alt="Hadil ABAILE Logo" 
+                     width="50" 
+                     height="50"
+                     class="logo-img"
+                     loading="lazy">
+                <span class="logo-text">Hadil ABAILE</span>
+            </a>
+        </div>
+
+        <nav class="main-nav" aria-label="Primary navigation">
+            <ul class="nav-list" role="list">
+                <li class="nav-item">
+                    <a href="privacy.html" class="nav-link">Privacy Policy</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Home</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="deletion-content">
+        <article class="deletion-policy">
+            <h1 class="deletion-title">2048 GENESIS - Account and Data Deletion Request</h1>
+            
+            <section class="deletion-section" aria-labelledby="data-collection">
+                <h2 id="data-collection" class="section-title">Data Collected and Stored</h2>
+                <div class="section-content">
+                    <p>The 2048 GENESIS app uses Google Sign-In for authentication. When you sign in, we store:</p>
+                    <ul class="data-list">
+                        <li><strong>High Score</strong></li>
+                        <li><strong>Username</strong></li>
+                    </ul>
+                    <p>...in our Firebase database for leaderboard purposes.</p>
+                </div>
+            </section>
+
+            <section class="deletion-section" aria-labelledby="deletion-process">
+                <h2 id="deletion-process" class="section-title">Requesting Account Deletion</h2>
+                <div class="section-content">
+                    <div class="step-card">
+                        <h3 class="step-title">Step 1: Email Request</h3>
+                        <p>Send email to:</p>
+                        <div class="email-container">
+                            <code class="support-email">contact.2048genesis@gmail.com</code>
+                        </div>
+                        <p>With subject:</p>
+                        <pre class="email-subject">"Request for Account Deletion - 2048 GENESIS"</pre>
+                    </div>
+
+                    <div class="step-card">
+                        <h3 class="step-title">Step 2: Processing</h3>
+                        <ul class="process-list">
+                            <li>Identity verification via Gmail address</li>
+                            <li>Permanent deletion from Firebase</li>
+                            <li>Processing within 7 working days</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="deletion-section" aria-labelledby="data-retention">
+                <h2 id="data-retention" class="section-title">Data Retention</h2>
+                <div class="section-content">
+                    <p>Upon deletion confirmation:</p>
+                    <div class="deletion-guarantee">
+                        <div class="guarantee-item">
+                            <span class="guarantee-icon">✅</span>
+                            <span>High Score removed</span>
+                        </div>
+                        <div class="guarantee-item">
+                            <span class="guarantee-icon">✅</span>
+                            <span>Username deleted</span>
+                        </div>
+                        <div class="guarantee-item">
+                            <span class="guarantee-icon">ℹ️</span>
+                            <span>Anonymized analytics may remain</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </article>
+    </main>
+
+    <!-- Footer cohérent -->
+    <footer class="main-footer">
+        <p class="footer-text">© 2025 Hadil ABAILE. All game rights reserved.</p>
+    </footer>
+</body>
+</html>
