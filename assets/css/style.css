@@ -303,3 +303,54 @@ body {
         padding: 1rem;
     }
 }
+
+/* Privacy Policy Full Text Styling */
+.policy-content {
+    width: 90%;
+    margin: 0 auto;
+}
+.policy-content h1 {
+    color: #2d3436;
+    font-size: 1.8rem;
+    margin: 2.5rem 0 1.5rem;
+    border-bottom: 2px solid #FF6D00;
+    padding-bottom: 0.5rem;
+}
+
+.policy-content h2 {
+    font-size: 1.4rem;
+    margin: 2rem 0 1rem;
+    color: #4a5568;
+}
+
+.policy-content ul {
+    margin: 1rem 0;
+    padding-left: 2rem;
+    line-height: 1.6;
+}
+
+.policy-content li {
+    margin: 0.75rem 0;
+}
+
+.update-notice {
+    margin-top: 3rem;
+    padding: 1rem;
+    background: #fff4ec;
+    border-radius: 8px;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .policy-content h1 {
+        font-size: 1.6rem;
+    }
+    
+    .policy-content h2 {
+        font-size: 1.2rem;
+    }
+    
+    .policy-content ul {
+        padding-left: 1.5rem;
+    }
+}
