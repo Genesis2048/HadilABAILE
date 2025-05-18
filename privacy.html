@@ -5,18 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Policy - 2048 GENESIS</title>
     <link rel="stylesheet" href="assets/css/style.css">
+	<link rel="stylesheet" href="assets/css/privacy.css">
+
+	<!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicons/favicon-16x16.png">
+    <link rel="manifest" href="assets/images/favicons/site.webmanifest">
 </head>
 <body>
     <header class="header" role="banner">
         <div class="logo-wrapper">
             <a href="index.html" class="logo-link" aria-label="Homepage">
                 <img src="assets/images/logo.png" 
-                     alt="Hadil ABAILE Logo" 
+                     alt="2048 GENESIS Logo" 
                      width="50" 
                      height="50"
                      class="logo-img"
                      loading="lazy">
-                <span class="logo-text">Hadil ABAILE</span>
+                <span class="logo-text">2048 GENESIS</span>
             </a>
         </div>
 
@@ -30,7 +37,47 @@
                 </li>
             </ul>
         </nav>
+
+		<button class="menu-toggle" aria-label="Toggle navigation">
+            <span class="hamburger-icon"></span>
+        </button>
     </header>
+
+	<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Sélectionne les éléments HTML nécessaires
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navList = document.querySelector('.nav-list');
+            const body = document.body;
+    
+            // Fonction pour gérer l'ouverture et la fermeture du menu
+            // 'force' est un paramètre optionnel :
+            // - Si 'true', ouvre le menu.
+            // - Si 'false', ferme le menu.
+            // - Si non défini, bascule l'état actuel.
+            const toggleMenuState = (force) => {
+                navList.classList.toggle('open', force);
+                menuToggle.classList.toggle('open', force);
+                body.classList.toggle('menu-open', force);
+            };
+    
+            // Gère le clic sur le bouton du menu hamburger
+            if (menuToggle) { // Vérifie si le bouton existe pour éviter les erreurs
+                menuToggle.addEventListener('click', () => {
+                    toggleMenuState(); // Appelle sans argument pour basculer l'état
+                });
+            }
+    
+            // Gère le clic sur un lien de navigation pour fermer le menu
+            if (navList) { // Vérifie si la liste de navigation existe
+                navList.querySelectorAll('.nav-link').forEach(link => {
+                    link.addEventListener('click', () => {
+                        toggleMenuState(false); // Appelle avec 'false' pour forcer la fermeture
+                    });
+                });
+            }
+        });
+    </script>
 
     <main class="policy-content">
         <article class="privacy-policy">
@@ -222,7 +269,7 @@
     </main>
 
     <footer class="main-footer">
-        <p class="footer-text">© 2025 Hadil ABAILE. All rights reserved.</p>
+        <p class="footer-text">© 2025 - 2048 GENESIS. All rights reserved.</p>
     </footer>
 </body>
 </html>

@@ -1,0 +1,252 @@
+/* Styles pour la section principale */
+.main-content {
+    width: 90%;
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+    display: block; /* Assure que le contenu se stack verticalement */
+    overflow: hidden;
+}
+
+/* Styles pour la section du conteneur de la bannière */
+.game-banner {
+    width: 100%;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+/* Styles pour l'image de la bannière */
+.banner-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    border-radius: 12px;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Effets au survol pour plus d'engagement */
+.banner-image:hover {
+    transform: scale(1.02);
+}
+
+/* Styles pour la section entière (About) */
+.about-game-section {
+    display: block;
+    width: 100%;
+    padding: 0.5rem 0; /* Espacement vertical généreux */
+    background-color: #f7f7f7;
+    text-align: center; /* Centre le texte principal par défaut */
+}
+
+/* Conteneur de contenu pour limiter la largeur et centrer */
+.about-game-section .container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 5%;
+}
+
+/* Titres de section */
+.section-title {
+    font-size: 2.8em;
+    color: #333;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.section-subtitle {
+    font-size: 1.6em;
+    color: #555;
+    margin-bottom: 2rem;
+    font-weight: 600;
+}
+
+.intro-text {
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: #444;
+    max-width: 800px;
+    margin: 0 auto 3rem auto;
+}
+
+/* Grille des caractéristiques principales (Mécaniques, Évolution) */
+.features-overview-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Ajusté pour mieux accommoder image au-dessus */
+    gap: 3rem;
+    margin-top: 3rem;
+    margin-bottom: 4rem;
+    padding: 0 5%;
+}
+
+.feature-card {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    overflow: hidden; /* Pour que les coins arrondis fonctionnent avec l'image */
+    display: block; /* **MODIFIÉ** : Assure que le contenu (image + texte) se stack verticalement */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center; /* **MODIFIÉ** : Centre le contenu horizontalement dans la carte */
+}
+
+.feature-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
+}
+
+/* Styles pour l'image DANS la Feature Card */
+.feature-visual {
+    width: 100%; /* L'image prend toute la largeur de la carte */
+    height: auto; /* **NOUVEAU** : Hauteur fixe pour une cohérence visuelle. Ajustez au besoin. */
+    display: block;
+    object-fit: cover; /* **NOUVEAU** : Recadre l'image pour couvrir l'espace sans déformation */
+    object-position: center; /* **NOUVEAU** : Centre l'image si elle est recadrée */
+    border-radius: 12px 12px 0 0; /* **NOUVEAU** : Coins arrondis uniquement en haut */
+}
+
+/* Conteneur pour le texte DANS la Feature Card */
+.feature-card-content {
+    padding: 1.5rem; /* Espacement interne pour le texte */
+    text-align: center; /* **MODIFIÉ** : Texte centré sous l'image */
+}
+
+/* Suppression des styles .feature-icon car les icônes ne seront plus utilisées */
+/* .feature-icon { ... } */
+
+.feature-title {
+    font-size: 1.5em;
+    color: #FF6D00;
+    margin-bottom: 0.5rem; /* Réduit la marge */
+    font-weight: 700;
+}
+
+.feature-card-content p {
+    font-size: 1em;
+    line-height: 1.7;
+    color: #666;
+    margin-top: 1rem; /* Ajout d'une marge pour séparer du titre */
+}
+
+/* Section des Combos Sensoriels */
+.sensory-combos-section {
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+}
+
+.combo-features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Ajusté pour 4 colonnes sur desktop, s'adapte */
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.combo-item {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    overflow: hidden; /* Pour que les coins arrondis fonctionnent avec l'image */
+    display: block; /* **MODIFIÉ** : Assure que le contenu (image + texte) se stack verticalement */
+    transition: transform 0.2s ease;
+    text-align: center; /* **MODIFIÉ** : Centre le contenu horizontalement dans l'élément */
+    padding: 0; /* **MODIFIÉ** : Supprime le padding ici, il sera sur .combo-item-content */
+}
+
+.combo-item:hover {
+    transform: translateY(-5px);
+}
+
+/* Styles pour l'image DANS le Combo Item */
+.combo-item-visual { /* **NOUVEAU** : Classe pour les images de combo item */
+    width: 100%;
+    height: auto; /* **NOUVEAU** : Hauteur fixe pour la cohérence */
+    object-fit: cover; /* **NOUVEAU** : Recadre l'image */
+    object-position: center; /* **NOUVEAU** : Centre l'image */
+    border-radius: 8px 8px 0 0; /* **NOUVEAU** : Coins arrondis uniquement en haut */
+    display: block;
+}
+
+/* Conteneur pour le texte DANS le Combo Item */
+.combo-item-content { /* **NOUVEAU** : Conteneur dédié pour le texte */
+    padding: 1rem; /* Espacement interne pour le texte */
+}
+
+/* Suppression des styles .combo-icon car les icônes ne seront plus utilisées */
+/* .combo-icon { ... } */
+
+.combo-item-content p { /* Ajusté pour cibler le paragraphe dans le nouveau conteneur */
+    font-size: 0.95em;
+    color: #555;
+    line-height: 1.5;
+}
+
+/* Section d'Appel à l'Action (CTA) */
+.cta-section {
+    margin-top: 4rem;
+    padding: 3rem 0;
+    background-color: #FF6D00;
+    color: white;
+    border-radius: 15px;
+}
+
+.cta-section p {
+    font-size: 1.4em;
+    margin-bottom: 2rem;
+    font-weight: 500;
+}
+
+/* Bouton d'Appel à l'Action */
+.button--primary {
+    display: inline-block;
+    background-color: #FFF;
+    color: #FF6D00;
+    padding: 1.2rem 2.5rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.2em;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.button--primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Media Queries pour la Responsivité */
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 2em;
+    }
+    .section-subtitle {
+        font-size: 1.3em;
+    }
+    .features-overview-grid {
+        grid-template-columns: 1fr; /* Une seule colonne sur mobile */
+    }
+    /* .feature-card, .feature-visual, .feature-card-content n'ont plus besoin de flex-direction: column car ils sont déjà en display:block et gérés verticalement */
+    .feature-visual {
+        height: auto; /* Ajusté pour mobile */
+    }
+    .feature-card-content {
+        padding: 1rem; /* Réduit le padding sur mobile */
+    }
+    .combo-features-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Ajusté pour mobile */
+    }
+    .combo-item-visual {
+        height: auto; /* Ajusté pour mobile */
+    }
+    .combo-item-content {
+        padding: 0.8rem;
+    }
+    .cta-section p {
+        font-size: 1.1em;
+    }
+    .button--primary {
+        padding: 1rem 2rem;
+        font-size: 1.1em;
+    }
+}

@@ -3,27 +3,36 @@ body {
     padding: 0;
 }
 
-/* Critical CSS for header */
+/* Styles pour le Header */
 .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1.5rem 5%;
-    background-color: #FF6D00;
-    border-bottom: 2px solid #D45A00;
+    background-color: #FF6D00; /* Votre couleur orange existante */
+    border-bottom: 2px solid #D45A00; /* Votre couleur de bordure existante */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    height: 1.5rem;
+    /* 'height: 1.5rem;' a été supprimé ici car il était trop restrictif et contradictoire avec le padding. */
+    min-height: 60px; /* Assure une hauteur minimale pour le header */
+    position: relative; /* Indispensable pour le positionnement du menu mobile */
+    z-index: 100; /* S'assure que le header est au-dessus du reste du contenu */
 }
 
 .logo-link {
     display: flex;
     align-items: center;
-    gap: 1rem; /* Augmenté de 0.75rem */
+    gap: 1rem;
     text-decoration: none;
 }
 
+/* Assurez-vous que votre balise <img> dans .logo-link a une taille appropriée, par exemple : */
+.logo-link img {
+    height: 40px; /* Taille pour votre logo */
+    width: auto;
+}
+
 .logo-text {
-    color: #FFF;
+    color: #FFF; /* Votre couleur de texte blanche existante */
     font-weight: 600;
     text-shadow: 
         0 1px 1px rgba(0, 0, 0, 0.15),
@@ -31,7 +40,7 @@ body {
 }
 
 .nav-list {
-    display: flex;
+    display: flex; /* Les liens s'affichent en ligne par défaut (pour le bureau) */
     gap: 1.5rem;
     margin: 0;
     padding: 0;
@@ -40,7 +49,7 @@ body {
 
 .nav-link {
     text-decoration: none;
-    color: #FFF;
+    color: #FFF; /* Votre couleur de texte blanche existante */
     font-weight: 600;
     padding: 0.5rem;
     border-radius: 4px;
@@ -65,220 +74,117 @@ body {
     text-decoration-color: rgba(255, 255, 255, 0.5);
 }
 
-/* Mobile optimization */
+/* Nouveaux styles pour l'icône du menu hamburger (initialement masquée sur le bureau) */
+.menu-toggle {
+    display: none; /* Masque le bouton hamburger par défaut */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 101; /* Assure que le bouton est au-dessus du menu lorsqu'il est ouvert */
+}
+
+.hamburger-icon {
+    display: block;
+    width: 28px; /* Taille de l'icône */
+    height: 3px;
+    background-color: white; /* Couleur des barres du hamburger */
+    position: relative;
+    transition: background-color 0.3s ease;
+}
+
+.hamburger-icon::before,
+.hamburger-icon::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: white; /* Couleur des barres du hamburger */
+    position: absolute;
+    transition: transform 0.3s ease, top 0.3s ease;
+}
+
+.hamburger-icon::before {
+    top: -9px; /* Positionne la barre supérieure */
+}
+
+.hamburger-icon::after {
+    top: 9px; /* Positionne la barre inférieure */
+}
+
+/* --- */
+
+/* Optimisation Mobile - Media Query pour les écrans plus petits ou égaux à 768px */
 @media (max-width: 768px) {
     .header {
-        padding: 1rem 5%;
+        padding: 1rem 5%; /* Ajustement du padding pour mobile */
+        min-height: 50px; /* Hauteur minimale légèrement réduite pour mobile */
     }
-    
+
+    /* Cache la liste de navigation par défaut sur mobile et la positionne hors écran */
     .nav-list {
-        gap: 1rem;
+        position: fixed; /* Position fixe par rapport à la fenêtre d'affichage */
+        top: 0; /* Alignée en haut */
+        right: -100%; /* Initialement hors écran, à droite */
+        width: 70%; /* Le menu prend 70% de la largeur de l'écran */
+        max-width: 300px; /* Limite la largeur max pour les très grands écrans mobiles */
+        height: 100vh; /* Prend toute la hauteur de la fenêtre d'affichage */
+        background-color: #FF6D00; /* Utilise votre couleur de header */
+        flex-direction: column; /* Empile les liens verticalement */
+        justify-content: flex-start; /* Alignement en haut */
+        align-items: flex-start; /* Alignement à gauche */
+        padding-top: 70px; /* Laisse de l'espace pour le header/logo */
+        transition: right 0.3s ease-in-out; /* Animation de glissement */
+        z-index: 99; /* Positionné en dessous du bouton toggle */
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2); /* Ombre discrète pour le menu */
     }
-    
+
+    /* Affiche le bouton du menu hamburger sur mobile */
+    .menu-toggle {
+        display: block;
+    }
+
+    /* Styles pour les liens de navigation mobiles */
+    .nav-list li {
+        width: 100%; /* Chaque élément de liste prend toute la largeur du menu */
+    }
+
     .nav-link {
-        padding: 0.25rem;
-        font-size: 0.9em;
+        width: 100%; /* Le lien prend toute la largeur de son parent */
+        padding: 1rem 5%; /* Rembourrage plus généreux pour faciliter le toucher */
+        font-size: 1em; /* Ajuste la taille de police pour la lisibilité */
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Séparateur visuel entre les liens */
+        text-shadow: none; /* Supprime l'ombre du texte pour un look plus épuré sur mobile */
     }
-}
 
-/* Main Content */
-.main-content {
-    flex: 1;
-    display: flex;
-    min-height: calc(100vh - 60px); /* Ajusté à la hauteur du header */
-}
-
-.construction-section {
-    width: 100%;
-    margin: auto;
-    padding: 2rem 5%;
-    background-color: #f8f9fa;
-}
-
-.construction-content {
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-/* Éléments visuels */
-.construction-icon {
-    font-size: 3.5rem;
-    margin-bottom: 1.5rem;
-    animation: pulse 2s infinite;
-}
-
-.construction-emoji {
-    display: inline-block;
-    margin: 0 0.5rem;
-}
-
-.construction-title {
-    font-size: 2.2rem;
-    color: #2d3436;
-    margin-bottom: 1rem;
-    line-height: 1.3;
-}
-
-.construction-text {
-    font-size: 1.1rem;
-    color: #636e72;
-    margin-bottom: 2rem;
-    line-height: 1.6;
-}
-
-/* Progress Bar */
-.progress-container {
-    height: 20px;
-    background-color: #ffe4cc;
-    border-radius: 10px;
-    overflow: hidden;
-    max-width: 400px;
-    margin: 2rem auto;
-}
-
-.progress-bar {
-    height: 100%;
-    background-color: #FF6D00;
-    position: relative;
-    transition: width 0.5s ease;
-}
-
-.progress-text {
-    position: absolute;
-    right: 8px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: white;
-    font-size: 0.75rem;
-    font-weight: 600;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-}
-
-/* Contact */
-.contact-note {
-    margin-top: 2rem;
-    color: #636e72;
-    font-size: 0.95rem;
-}
-
-.contact-link {
-    color: #FF6D00;
-    font-weight: 600;
-    text-decoration: none;
-    transition: opacity 0.3s ease;
-}
-
-.contact-link:hover {
-    opacity: 0.8;
-    text-decoration: underline;
-}
-
-/* Animation */
-@keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-    100% { transform: scale(1); }
-}
-
-/* Mobile Optimization */
-@media (max-width: 768px) {
-    .construction-title {
-        font-size: 1.8rem;
+    .nav-link:last-child {
+        border-bottom: none; /* Pas de bordure sous le dernier lien */
     }
-    
-    .construction-text {
-        font-size: 1rem;
+
+    /* État du menu lorsqu'il est ouvert (cette classe est ajoutée/retirée par JavaScript) */
+    .nav-list.open {
+        right: 0; /* Fait glisser le menu sur l'écran */
     }
-    
-    .progress-container {
-        height: 16px;
-        max-width: 300px;
+
+    /* Animation de l'icône hamburger lorsqu'elle est "ouverte" (se transforme en croix) */
+    /* La classe .open doit être ajoutée au .menu-toggle via JavaScript */
+    .menu-toggle.open .hamburger-icon {
+        background-color: transparent; /* La barre du milieu disparaît */
     }
-    
-    .progress-text {
-        font-size: 0.65rem;
+
+    .menu-toggle.open .hamburger-icon::before {
+        transform: translateY(9px) rotate(45deg); /* La barre supérieure se déplace et pivote */
     }
-    
-    .contact-note {
-        font-size: 0.85rem;
+
+    .menu-toggle.open .hamburger-icon::after {
+        transform: translateY(-9px) rotate(-45deg); /* La barre inférieure se déplace et pivote */
     }
-}
 
-/* Delete Page Specific Styles */
-.deletion-content {
-    max-width: 800px;
-    margin: 2rem auto;
-    padding: 0 5%;
-}
-
-.deletion-title {
-    color: #2d3436;
-    font-size: 2rem;
-    margin-bottom: 2rem;
-    text-align: center;
-}
-
-.section-title {
-    color: #FF6D00;
-    font-size: 1.5rem;
-    margin: 2rem 0 1rem;
-    border-bottom: 2px solid #FF6D00;
-    padding-bottom: 0.5rem;
-}
-
-.step-card {
-    background: #fff4ec;
-    border-radius: 8px;
-    padding: 1.5rem;
-    margin: 1.5rem 0;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-}
-
-.email-container {
-    margin: 1rem 0;
-    padding: 1rem;
-    background: #fff;
-    border-radius: 4px;
-    border: 1px dashed #FF6D00;
-}
-
-.support-email {
-    color: #FF6D00;
-    font-weight: 600;
-    word-break: break-all;
-}
-
-.email-subject {
-    display: inline-block;
-    background: #f8f9fa;
-    padding: 0.25rem 0.5rem;
-    border-radius: 4px;
-    font-family: monospace;
-}
-
-.process-list {
-    padding-left: 1.5rem;
-    line-height: 1.6;
-}
-
-.process-list li {
-    margin: 0.75rem 0;
-}
-
-.deletion-guarantee {
-    display: grid;
-    gap: 1rem;
-    margin-top: 1rem;
-}
-
-.guarantee-item {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    padding: 0.75rem;
-    background: #f8f9fa;
-    border-radius: 4px;
+    /* Optionnel : Empêche le défilement du corps de la page lorsque le menu est ouvert */
+    /* Ceci nécessite d'ajouter/retirer la classe 'menu-open' à la balise <body> via JavaScript */
+    body.menu-open {
+        overflow: hidden;
+    }
 }
 
 .main-footer {
@@ -287,70 +193,4 @@ body {
     color: #636e72;
     border-top: 1px solid #eee;
     margin-top: 4rem;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .deletion-title {
-        font-size: 1.75rem;
-    }
-    
-    .section-title {
-        font-size: 1.3rem;
-    }
-    
-    .step-card {
-        padding: 1rem;
-    }
-}
-
-/* Privacy Policy Full Text Styling */
-.policy-content {
-    width: 90%;
-    margin: 0 auto;
-}
-.policy-content h1 {
-    color: #2d3436;
-    font-size: 1.8rem;
-    margin: 2.5rem 0 1.5rem;
-    border-bottom: 2px solid #FF6D00;
-    padding-bottom: 0.5rem;
-}
-
-.policy-content h2 {
-    font-size: 1.4rem;
-    margin: 2rem 0 1rem;
-    color: #4a5568;
-}
-
-.policy-content ul {
-    margin: 1rem 0;
-    padding-left: 2rem;
-    line-height: 1.6;
-}
-
-.policy-content li {
-    margin: 0.75rem 0;
-}
-
-.update-notice {
-    margin-top: 3rem;
-    padding: 1rem;
-    background: #fff4ec;
-    border-radius: 8px;
-    text-align: center;
-}
-
-@media (max-width: 768px) {
-    .policy-content h1 {
-        font-size: 1.6rem;
-    }
-    
-    .policy-content h2 {
-        font-size: 1.2rem;
-    }
-    
-    .policy-content ul {
-        padding-left: 1.5rem;
-    }
 }
