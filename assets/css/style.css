@@ -9,8 +9,8 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 1.5rem 5%;
-    background-color: #FF6D00; /* Votre couleur orange existante */
-    border-bottom: 2px solid #D45A00; /* Votre couleur de bordure existante */
+    background-color: #007FFF; /* Votre couleur orange existante */
+    border-bottom: 2px solid #005FCC; /* Votre couleur de bordure existante */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     /* 'height: 1.5rem;' a été supprimé ici car il était trop restrictif et contradictoire avec le padding. */
     min-height: 60px; /* Assure une hauteur minimale pour le header */
@@ -129,7 +129,7 @@ body {
         width: 70%; /* Le menu prend 70% de la largeur de l'écran */
         max-width: 300px; /* Limite la largeur max pour les très grands écrans mobiles */
         height: 100vh; /* Prend toute la hauteur de la fenêtre d'affichage */
-        background-color: #FF6D00; /* Utilise votre couleur de header */
+        background-color: #007FFF; /* Utilise votre couleur de header */
         flex-direction: column; /* Empile les liens verticalement */
         justify-content: flex-start; /* Alignement en haut */
         align-items: flex-start; /* Alignement à gauche */

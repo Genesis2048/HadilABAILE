@@ -117,7 +117,7 @@
 
 .feature-title {
     font-size: 1.5em;
-    color: #FF6D00;
+    color: #007FFF;
     margin-bottom: 0.5rem; /* Réduit la marge */
     font-weight: 700;
 }
@@ -185,7 +185,7 @@
 .cta-section {
     margin-top: 4rem;
     padding: 3rem 0;
-    background-color: #FF6D00;
+    background-color: #007FFF;
     color: white;
     border-radius: 15px;
 }
@@ -200,7 +200,7 @@
 .button--primary {
     display: inline-block;
     background-color: #FFF;
-    color: #FF6D00;
+    color: #007FFF;
     padding: 1.2rem 2.5rem;
     border-radius: 50px;
     text-decoration: none;
